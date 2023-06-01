@@ -7,7 +7,8 @@ services:
     ports:
       - 5555:5555
     networks:
-      - tsp-network
+      mynetwork:
+        ipv4_address: 192.168.1.100
   
   client1:
     build:
@@ -21,7 +22,8 @@ services:
     ports:
       - 5556:5556
     networks:
-      - tsp-network
+      mynetwork:
+        ipv4_address: 192.168.1.101
 
   client2:
     build:
@@ -35,7 +37,8 @@ services:
     ports:
       - 5557:5557
     networks:
-      - tsp-network
+      mynetwork:
+        ipv4_address: 192.168.1.102
 
   client3:
     build:
@@ -49,7 +52,8 @@ services:
     ports:
       - 5558:5558
     networks:
-      - tsp-network
+      mynetwork:
+        ipv4_address: 192.168.1.103
   
   client4:
     build:
@@ -63,7 +67,11 @@ services:
     ports:
       - 5559:5559
     networks:
-      - tsp-network
+      mynetwork:
+        ipv4_address: 192.168.1.104
 
 networks:
-  tsp-network:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 192.168.1.0/16
