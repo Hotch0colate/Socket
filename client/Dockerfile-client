@@ -1,0 +1,11 @@
+FROM python:3.9
+
+WORKDIR /app
+
+# Copy the necessary files
+COPY setting.py /app/setting.py
+COPY network.py /app/network.py
+COPY client.py /app/client.py
+
+# Set the entrypoint command
+CMD ["python", "client.py"]

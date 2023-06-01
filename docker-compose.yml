@@ -1,0 +1,69 @@
+version: '3'
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile-server
+    ports:
+      - 5555:5555
+    networks:
+      - tsp-network
+  
+  client1:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-client
+    depends_on:
+      - server
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=5555
+    ports:
+      - 5556:5556
+    networks:
+      - tsp-network
+
+  client2:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-client
+    depends_on:
+      - server
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=5555
+    ports:
+      - 5557:5557
+    networks:
+      - tsp-network
+
+  client3:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-client
+    depends_on:
+      - server
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=5555
+    ports:
+      - 5558:5558
+    networks:
+      - tsp-network
+  
+  client4:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-client
+    depends_on:
+      - server
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=5555
+    ports:
+      - 5559:5559
+    networks:
+      - tsp-network
+
+networks:
+  tsp-network:
