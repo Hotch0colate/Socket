@@ -1,6 +1,4 @@
-For algo network project
-
-too ezpz
+For Algo(CSS224) and Network(CSS228) Project
 
 just open cmd and cd to path of this project
 
